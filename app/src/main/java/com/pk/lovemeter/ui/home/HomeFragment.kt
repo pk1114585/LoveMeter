@@ -10,12 +10,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.pk.lovemeter.R
 import com.pk.lovemeter.databinding.FragmentHomeBinding
-import com.pk.lovemeter.databinding.FragmentMainScreenBinding
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentMainScreenBinding? = null
+    private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -29,8 +28,13 @@ class HomeFragment : Fragment() {
         homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+//        val textView: TextView = binding
+//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
         return root
     }
 
