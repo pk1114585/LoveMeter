@@ -1,6 +1,5 @@
 package com.pk.lovemeter.ui.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -8,17 +7,11 @@ class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"
-
-
-
     }
 
-
-
-    val text: LiveData<String> = _text
-
-
-
-
+    fun saveInfo(name1:String,name2:String)
+    {
+        _text.value = name1+name2
+    }
 
 }
