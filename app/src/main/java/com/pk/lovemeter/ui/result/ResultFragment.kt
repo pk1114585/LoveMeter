@@ -25,16 +25,16 @@ class ResultFragment : Fragment() {
         val partnername = arguments?.getString("partnername")
         Log.i("Result",username.toString()+partnername)
 
-        val dataSource = UserHistoryDatabase.getInstance(requireContext()).userHistoryDatabaseDao
-        val factory = ModelFactory(dataSource)
-        val viewModel = ViewModelProvider(this,factory)[ResultViewModel::class.java]
+//        val dataSource = UserHistoryDatabase.getInstance(requireContext()).userHistoryDatabaseDao
+//        val factory = ModelFactory(dataSource)
+        val viewModel = ViewModelProvider(this)[ResultViewModel::class.java]
 
         if (partnername != null&& username!=null) {
             viewModel.loadLoveCount(username,partnername)
         }
         viewModel.loveCount.observe(viewLifecycleOwner, Observer {
             val tv = resultdata
-            tv.setText(viewModel.loveCount.value.toString())
+            tv.setText(viewModel.loveCount.value.toString() +"%")
         })
         Log.i("result","onCreateView")
         return inflater.inflate(R.layout.fragment_result, container, false)

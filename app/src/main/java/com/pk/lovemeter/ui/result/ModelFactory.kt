@@ -9,7 +9,7 @@ import java.lang.IllegalArgumentException
 class ModelFactory(val dataSource:HistoryDatabaseDao) : ViewModelProvider.Factory{
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ResultViewModel::class.java))
-            return ResultViewModel(dataSource) as T
+            return ResultViewModel() as T
         else
             throw IllegalArgumentException("Unknown model class")
     }

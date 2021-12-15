@@ -8,7 +8,7 @@ import com.pk.lovemeter.ui.database.HistoryDatabaseDao
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ResultViewModel(dataSource:HistoryDatabaseDao): ViewModel() {
+class ResultViewModel(): ViewModel() {
 
     val loveCount:MutableLiveData<Long> by lazy {
         MutableLiveData<Long>()
@@ -16,7 +16,7 @@ class ResultViewModel(dataSource:HistoryDatabaseDao): ViewModel() {
 
     fun loadLoveCount(username:String,partnername:String)
     {
-        if (loveCount.value==null)
+        //if (loveCount.value==null)
             viewModelScope.launch {
                 val count = LoveMeterCount().getLoveCount(username,partnername)
 
