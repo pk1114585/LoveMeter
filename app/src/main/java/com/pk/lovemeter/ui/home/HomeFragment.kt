@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.pk.lovemeter.R
 import com.pk.lovemeter.databinding.FragmentHomeBinding
 
@@ -35,9 +37,8 @@ class HomeFragment : Fragment() {
 
     private fun getLoveCount()
     {
-        val name1 = binding.yourname.text.toString()
-        val name2 = binding.partnername.text.toString()
-        homeViewModel.saveInfo(name1,name2)
+        val navController = activity?.findNavController(R.id.nav_host_fragment_content_main)
+        navController?.navigate(R.id.action_nav_home_to_resultFragment)
     }
     override fun onDestroyView() {
         super.onDestroyView()
