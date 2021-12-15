@@ -36,5 +36,11 @@
             android:id="@+id/action_resultFragment_to_nav_home"
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_home" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="partnername"
+            app:argType="string" />
     </fragment>
 </navigation>
