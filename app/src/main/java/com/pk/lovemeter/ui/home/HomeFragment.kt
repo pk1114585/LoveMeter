@@ -1,10 +1,13 @@
 package com.pk.lovemeter.ui.home
 
+import LoveMeterCount
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +15,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.pk.lovemeter.R
 import com.pk.lovemeter.databinding.FragmentHomeBinding
+import com.pk.lovemeter.gotosecond
+import com.pk.lovemeter.ui.result.ResultFragment
 
 class HomeFragment : Fragment() {
 
@@ -30,7 +35,31 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         binding.go.setOnClickListener(View.OnClickListener {
-            getLoveCount()
+           var name:String =binding.yourname.text.toString()
+            var partnername:String =binding.partnername.text.toString()
+            if (name.isEmpty() && partnername.isEmpty()){
+                Toast.makeText(requireContext(),"Text is Empty",Toast.LENGTH_SHORT).show()
+
+            } else if (name.equals(partnername)){
+                Toast.makeText(requireContext(),"Both Name can't be same",Toast.LENGTH_SHORT).show()
+
+            }
+
+            else{
+              var result:Long= LoveMeterCount().getLoveCount(name,partnername)
+               var resultFragment= ResultFragment()
+
+
+                var bundle=Bundle()
+                bundle.putLong("resultno" ,result)
+                resultFragment.arguments.to(bundle)
+
+                getLoveCount()
+            }
+
+
+
+
         })
         return binding.root
     }
