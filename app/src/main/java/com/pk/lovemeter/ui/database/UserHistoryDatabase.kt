@@ -21,7 +21,7 @@ abstract class UserHistoryDatabase :RoomDatabase(){
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         UserHistoryDatabase::class.java,
-                        "UserHistory"
+                        "user_history_database"
                     )
                         .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()

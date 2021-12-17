@@ -18,15 +18,15 @@
 
     <fragment
         android:id="@+id/nav_history"
-        android:name="com.pk.lovemeter.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.pk.lovemeter.ui.history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.pk.lovemeter.ui.slideshow.SlideshowFragment"
+        android:name="com.pk.lovemeter.ui.setting.SettingFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.pk.lovemeter.ui.result.ResultFragment"

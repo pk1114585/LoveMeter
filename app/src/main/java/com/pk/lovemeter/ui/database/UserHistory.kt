@@ -5,10 +5,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity
+@Entity(tableName = "user_history_table")
 data class UserHistory(
     @PrimaryKey(autoGenerate = true)
-    val uid:Int,
+    val uid:Int=0,
 
     @ColumnInfo(name = "username")
     val username:String,
@@ -17,5 +17,5 @@ data class UserHistory(
     val partnername:String,
 
     @ColumnInfo(name = "lovecount")
-    val lovecount:Int
+    val lovecount:Long
 )

@@ -11,7 +11,7 @@ interface HistoryDatabaseDao {
     @Insert
     fun insert(history:UserHistory)
 
-    @Query("Select * from UserHistory")
+    @Query("Select * from user_history_table")
     fun getAll():List<UserHistory>
 
     @Delete
