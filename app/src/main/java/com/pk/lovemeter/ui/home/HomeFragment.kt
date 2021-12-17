@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.pk.lovemeter.R
 import com.pk.lovemeter.databinding.FragmentHomeBinding
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
@@ -31,17 +32,28 @@ class HomeFragment : Fragment() {
 
         binding.go.setOnClickListener(View.OnClickListener {
            val name:String =binding.yourname.text.toString()
-            val partnername:String =binding.partnername.text.toString()
-            if (name.isEmpty() && partnername.isEmpty()){
+            val partnernamedata:String =binding.partnername.text.toString()
+            if (name.isEmpty() && partnernamedata.isEmpty()){
                 Toast.makeText(requireContext(),"Text is Empty",Toast.LENGTH_SHORT).show()
 
-            } else if (name.equals(partnername)){
+            } else if (name.equals(partnernamedata)){
                 Toast.makeText(requireContext(),"Both Name can't be same",Toast.LENGTH_SHORT).show()
+
+            }else if (name.isBlank())
+            {
+                yourname.error="it can't be blank"
 
             }
 
+            else if (partnernamedata.isBlank())
+            {
+                partnername.error="it can't be blank"
+
+            }
+
+
             else{
-                getLoveCount(name,partnername)
+                getLoveCount(name,partnernamedata)
             }
 
 
